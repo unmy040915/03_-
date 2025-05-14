@@ -135,8 +135,6 @@
                                     <action selector="plusBird" destination="BYZ-38-t0r" eventType="touchUpInside" id="aD4-xO-Ivy"/>
                                 </connections>
                             </button>
-<<<<<<< HEAD
-=======
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aId-oZ-lTH">
                                 <rect key="frame" x="231" y="365" width="44" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
