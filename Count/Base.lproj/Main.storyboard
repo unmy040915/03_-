@@ -157,7 +157,6 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="32"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="minusBird" destination="BYZ-38-t0r" eventType="touchUpInside" id="DM0-g9-0UZ"/>
                                     <action selector="minusNeko" destination="BYZ-38-t0r" eventType="touchUpInside" id="HWN-Ud-tvb"/>
                                 </connections>
                             </button>
@@ -170,6 +169,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="-">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="32"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="minusBird" destination="BYZ-38-t0r" eventType="touchUpInside" id="vx1-NY-CXt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2d-1Q-LyR">
                                 <rect key="frame" x="137" y="366" width="39" height="53"/>
@@ -188,6 +190,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="backgroundBird" destination="bdZ-gv-9t7" id="R17-B3-Nx0"/>
+                        <outlet property="backgroundInu" destination="8hh-PK-6FY" id="Dt2-3Q-dqm"/>
+                        <outlet property="backgroundMori" destination="0AA-iU-OE2" id="ihQ-RD-dZV"/>
+                        <outlet property="backgroundNeko" destination="sVy-Lu-K9Z" id="Pv8-WU-Eb4"/>
+                        <outlet property="labelBird" destination="ptR-Nq-idv" id="SsA-rR-ag4"/>
+                        <outlet property="labelInu" destination="wNG-b1-3kN" id="UyB-kY-erF"/>
+                        <outlet property="labelNeko" destination="RAG-tY-y7g" id="YmN-s4-Dxd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
