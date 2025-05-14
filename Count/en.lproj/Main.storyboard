@@ -236,7 +236,6 @@
                                     <action selector="minusNeko" destination="BYZ-38-t0r" eventType="touchUpInside" id="HWN-Ud-tvb"/>
                                 </connections>
                             </button>
->>>>>>> 9027f7010b69b656ad3e67ec60b2e3ce2cc2fc40
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQR-ir-gk2">
                                 <rect key="frame" x="74" y="665" width="39" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
