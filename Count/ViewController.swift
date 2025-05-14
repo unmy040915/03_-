@@ -9,19 +9,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var backgroundViews: [UIView] = []
     
     var numberNeko: Int = 0
     var numberInu: Int = 0
     var numberBird: Int = 0
-    var numberNew: Int = 0
-
    
     @IBOutlet var labelNeko: UILabel!
     @IBOutlet var labelInu: UILabel!
     @IBOutlet var labelBird: UILabel!
-    @IBOutlet var labelNew: UILabel!
     
-    @IBOutlet var background: UIView!
+    @IBOutlet var backgroundBird: UIView!
+    @IBOutlet var backgroundInu: UIView!
+    @IBOutlet var backgroundNeko: UIView!
     @IBOutlet var backgroundMori: UIView!
     
     
@@ -29,105 +29,29 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        backgroundViews = [backgroundNeko,backgroundInu,backgroundBird]
     }
-    
     @IBAction func plusNeko() {
-        numberNeko=numberNeko + 1
-        labelNeko.text = String(numberNeko)
-        if numberNeko >= 10{
-            labelNeko.textColor = UIColor.red
-        } else if numberNeko <= -10{
-            labelNeko.textColor = UIColor.blue
-        }else{
-            labelNeko.textColor = UIColor.black
-        }
-        
+        setupPlus(number: &numberNeko, label: labelNeko)
+        showOnly(viewToShow: backgroundNeko)
     }
     @IBAction func plusInu() {
-        numberInu += 1
-        labelInu.text = String(numberInu)
-        if numberInu >= 10{
-            labelInu.textColor = UIColor.red
-        } else if numberInu <= -10{
-            labelInu.textColor = UIColor.blue
-        }else{
-            labelInu.textColor = UIColor.black
-        }
-        
+        setupPlus(number: &numberInu, label: labelInu)
+        showOnly(viewToShow: backgroundInu)
     }
     @IBAction func plusBird() {
-        numberBird += 1
-        labelBird.text = String(numberNeko)
-        if numberNeko >= 10{
-            labelBird.textColor = UIColor.red
-        } else if numberNeko <= -10{
-            labelBird.textColor = UIColor.blue
-        }else{
-            labelBird.textColor = UIColor.black
-        }
-        
-    }
-    
-    @IBAction func plusNew() {
-        numberNew += 1
-        labelNew.text = String(numberNew)
-        if numberNew >= 10{
-            labelNew.textColor = UIColor.red
-        } else if numberNew <= -10{
-            labelNew.textColor = UIColor.blue
-        }else{
-            labelNew.textColor = UIColor.black
-        }
-        
+        setupPlus(number: &numberBird, label: labelBird)
+        showOnly(viewToShow: backgroundBird)
     }
     
     @IBAction func minusNeko() {
-        numberNeko -= 1
-        labelNeko.text = String(numberNeko)
-        if numberNeko >= 10{
-            labelNeko.textColor = UIColor.red
-        } else if numberNeko <= -10{
-            labelNeko.textColor = UIColor.blue
-        }else{
-            labelNeko.textColor = UIColor.black
-        }
+        setupMinus(number: &numberNeko, label: labelNeko)
     }
     @IBAction func minusInu() {
-        numberInu -= 1
-        labelInu.text = String(numberInu)
-        if numberInu >= 10{
-            labelInu.textColor = UIColor.red
-        } else if numberInu <= -10{
-            labelInu.textColor = UIColor.blue
-        }else{
-            labelInu.textColor = UIColor.black
-        }
+        setupMinus(number: &numberInu, label: labelInu)
     }
     @IBAction func minusBird() {
-        numberBird -= 1
-        labelBird.text = String(numberBird)
-        if numberBird >= 10{
-            labelBird.textColor = UIColor.red
-        } else if numberBird <= -10{
-            labelBird.textColor = UIColor.blue
-        }else{
-            labelBird.textColor = UIColor.black
-        }
-    }
-    @IBAction func minusNew() {
-        numberNew -= 1
-        labelNew.text = String(numberNew)
-        if numberNew >= 10{
-            labelNew.textColor = UIColor.red
-        } else if numberNew <= -10{
-            labelNew.textColor = UIColor.blue
-        }else{
-            labelNew.textColor = UIColor.black
-        }
-    }
-    
-    func minus(number:inout Int) {
-        
+        setupMinus(number: &numberBird, label: labelBird)
     }
     
     func minus(number:inout Int,label:UILabel) {
@@ -135,22 +59,33 @@ class ViewController: UIViewController {
         label.text = String(number)
     }
     
+    func plus(number:inout Int,label:UILabel) {
+        number += 1
+        label.text = String(number)
+    }
+    
+    func setupMinus(number:inout Int,label:UILabel) {
+        minus(number:&number,label:label)
+        ifColor(number: number, label: label)
+    }
+    
+    func setupPlus(number:inout Int,label:UILabel) {
+        plus(number:&number,label:label)
+        ifColor(number: number, label: label)
+    }
     
     @IBAction func reset() {
         numberInu = 0
         numberNeko = 0
         numberBird = 0
-        numberNew = 0
         
         labelInu.text = String(numberInu)
         labelNeko.text = String(numberNeko)
         labelBird.text = String(numberBird)
-        labelNew.text = String(numberNew)
         
         ifColor(number: numberInu, label: labelNeko)
         ifColor(number: numberNeko, label: labelNeko)
         ifColor(number: numberBird, label: labelBird)
-        ifColor(number: numberNew, label: labelNew)
         
         }
     
@@ -161,6 +96,12 @@ class ViewController: UIViewController {
             label.textColor = UIColor.blue
         }else{
             label.textColor = UIColor.black
+        }
+    }
+    
+    func showOnly(viewToShow: UIView) {
+        for view in backgroundViews {
+            view.isHidden = view !== viewToShow
         }
     }
     
